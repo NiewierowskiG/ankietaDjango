@@ -24,9 +24,3 @@ class Ankieta(models.Model):
         ]
     )
     ulubiony_kolor = models.CharField(max_length=64)
-
-
-
-
-
-
