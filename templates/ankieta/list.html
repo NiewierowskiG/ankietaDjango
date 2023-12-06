@@ -1,0 +1,23 @@
+{% extends "ankieta/base.html" %}
+{% block content %}
+    <table class="ankieta_table">
+        <thead>
+            <tr>
+                <th>Wiek</th>
+                <th>Wzrost</th>
+                <th>Płeć</th>
+                <th>Ulubiony kolor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <th>{{ row.wiek }}</th>
+                <th>{{ row.wzrost }}</th>
+                <th>{{ row.płeć }}</th>
+                <th>{{ row.ulubiony_kolor }}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
