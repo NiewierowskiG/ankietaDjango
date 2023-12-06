@@ -31,5 +31,10 @@ def update_ankieta(request, id):
 
     # add form dictionary to context
     context["form"] = form
-
     return render(request, "ankieta/update.html", context)
+
+
+def delete_ankieta(request, id):
+    obj = get_object_or_404(Ankieta, id=id)
+    obj.delete()
+    return HttpResponseRedirect("/ankieta/")
