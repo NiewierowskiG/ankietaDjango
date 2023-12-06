@@ -44,3 +44,11 @@ def single_ankieta(request, id):
     obj = get_object_or_404(Ankieta, id=id)
     context["obj"] = obj
     return render(request, "ankieta/single.html", context)
+
+
+def refresh_list_ankieta(request):
+    context = {
+        'data': Ankieta.objects.all()
+    }
+    return render(request, 'ankieta/reftesh_list.html', context)
+

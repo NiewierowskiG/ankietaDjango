@@ -1,5 +1,6 @@
 {% extends "ankieta/base.html" %}
 {% block content %}
+    <button class="refresh-page" onclick="refreshListTemplate()">Odświerz listę</button>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -9,7 +10,7 @@
                 <th>Ulubiony kolor</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="display-data">
             {% for row in data %}
             <tr>
                 <th>{{ row.wiek }}</th>
