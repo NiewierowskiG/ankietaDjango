@@ -16,6 +16,7 @@ def create_ankieta(request):
     form = AnkietaForm(request.POST or None)
     if form.is_valid():
         form.save()
+        return HttpResponseRedirect("/ankieta/")
     context['form'] = form
     return render(request, "ankieta/create.html", context)
 
