@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from .models import Ankieta
 from .forms import AnkietaForm
+from django.http import HttpResponseNotFound, HttpResponse
 
 
 def list_view(request):
@@ -34,9 +35,11 @@ def update_ankieta(request, id):
 
 
 def delete_ankieta(request, id):
+    print(request.method)
     obj = get_object_or_404(Ankieta, id=id)
     obj.delete()
-    return HttpResponseRedirect("/ankieta/")
+    return HttpResponse('')
+    return HttpResponseNotFound('')
 
 
 def single_ankieta(request, id):

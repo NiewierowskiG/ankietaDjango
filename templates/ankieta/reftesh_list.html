@@ -1,8 +1,27 @@
 {% for row in data %}
-<tr>
-    <th>{{ row.wiek }}</th>
-    <th>{{ row.wzrost }}</th>
-    <th>{{ row.płeć }}</th>
-    <th>{{ row.ulubiony_kolor }}</th>
-</tr>
+    <tr>
+        <th>{{ row.wiek }}</th>
+        <th>{{ row.wzrost }}</th>
+        <th>{{ row.płeć }}</th>
+        <th>{{ row.ulubiony_kolor }}</th>
+        <th>
+            <button class="delete-ankieta" onclick="deleteAnkieta({{ row.id }}, '{{ csrf_token }}')">
+                Usuń
+            </button>
+        </th>
+        <th>
+            <a href="http://127.0.0.1:8000/ankieta/update/{{ row.id }}">
+                <button class="edit-ankieta">
+                    Edytuj
+                </button>
+            </a>
+        </th>
+        <th>
+            <a href="http://127.0.0.1:8000/ankieta/{{ row.id }}">
+                <button class="inspect-ankieta">
+                    Zobacz
+                </button>
+            </a>
+        </th>
+    </tr>
 {% endfor %}
